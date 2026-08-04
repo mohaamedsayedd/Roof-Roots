@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Properties | Roof & Roots</title>
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-header" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-title">ROOF & ROOTS</span>
+        <span class="logo-subtitle">REAL ESTATE MARKETING</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="properties.html" class="nav-link active">Properties</a></li>
+          <li><a href="developers.html" class="nav-link">Developers</a></li>
+          <li><a href="areas.html" class="nav-link">Areas</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner Section -->
+  <section class="page-banner">
+    <div class="banner-overlay"></div>
+    <div class="container banner-content">
+      <span class="sub-title">CURATED PORTFOLIO</span>
+      <h1 class="page-title">Our Premium Properties</h1>
+      <p class="banner-text">Explore exceptional living spaces and investment projects across prime locations.</p>
+    </div>
+  </section>
+
+  <!-- Filter & Properties Listing Section -->
+  <section class="properties-listing-section">
+    <div class="container">
+      
+      <!-- Filter Sidebar + Grid Layout -->
+      <div class="listing-layout">
+        
+        <!-- Filter Sidebar -->
+        <aside class="filter-sidebar">
+          <div class="filter-box">
+            <h3 class="filter-title"><i class="fa-solid fa-sliders"></i> Filter Properties</h3>
+            
+            <form id="propertyFilterForm">
+              <div class="filter-group">
+                <label for="filterLocation">Location</label>
+                <select id="filterLocation" name="location">
+                  <option value="all">All Locations</option>
+                  <option value="new-cairo">New Cairo</option>
+                  <option value="sheikh-zayed">Sheikh Zayed</option>
+                  <option value="north-coast">North Coast</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filterType">Property Type</label>
+                <select id="filterType" name="type">
+                  <option value="all">All Types</option>
+                  <option value="villa">Villa</option>
+                  <option value="apartment">Apartment</option>
+                  <option value="duplex">Duplex</option>
+                  <option value="commercial">Commercial Space</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filterPrice">Price Range</label>
+                <select id="filterPrice" name="price">
+                  <option value="all">Any Price</option>
+                  <option value="1">Under $500,000</option>
+                  <option value="2">$500,000 - $1,000,000</option>
+                  <option value="3">$1,000,000+</option>
+                </select>
+              </div>
+
+              <div class="filter-group">
+                <label for="filterBedrooms">Bedrooms</label>
+                <select id="filterBedrooms" name="bedrooms">
+                  <option value="all">Any</option>
+                  <option value="2">2+ Beds</option>
+                  <option value="3">3+ Beds</option>
+                  <option value="4">4+ Beds</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-full">Apply Filters</button>
+            </form>
+          </div>
+        </aside>
+
+        <!-- Properties Grid Container -->
+        <div class="listing-content">
+          <div class="listing-header">
+            <p class="results-count">Showing <strong>6</strong> Properties</p>
+          </div>
+
+          <div class="properties-grid">
+            
+            <!-- Property 1 -->
+            <div class="property-card">
+              <div class="property-img-wrapper">
+                <img src="assets/images/properties/prop-1.jpg" alt="Modern Luxury Villa" class="property-img">
+                <span class="property-badge">Featured</span>
+              </div>
+              <div class="property-info">
+                <span class="property-location"><i class="fa-solid fa-location-dot"></i> New Cairo</span>
+                <h3 class="property-title">Modern Luxury Villa</h3>
+                <p class="property-price">$1,250,000</p>
+                <div class="property-specs">
+                  <span><i class="fa-solid fa-bed"></i> 4 Beds</span>
+                  <span><i class="fa-solid fa-bath"></i> 5 Baths</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> 520 m²</span>
+                </div>
+                <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card">
+              <div class="property-img-wrapper">
+                <img src="assets/images/properties/prop-2.jpg" alt="Contemporary Penthouse" class="property-img">
+                <span class="property-badge">For Sale</span>
+              </div>
+              <div class="property-info">
+                <span class="property-location"><i class="fa-solid fa-location-dot"></i> Sheikh Zayed</span>
+                <h3 class="property-title">Contemporary Penthouse</h3>
+                <p class="property-price">$780,000</p>
+                <div class="property-specs">
+                  <span><i class="fa-solid fa-bed"></i> 3 Beds</span>
+                  <span><i class="fa-solid fa-bath"></i> 3 Baths</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> 310 m²</span>
+                </div>
+                <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property-card">
+              <div class="property-img-wrapper">
+                <img src="assets/images/properties/prop-3.jpg" alt="Waterfront Chalet" class="property-img">
+                <span class="property-badge">New Launch</span>
+              </div>
+              <div class="property-info">
+                <span class="property-location"><i class="fa-solid fa-location-dot"></i> North Coast</span>
+                <h3 class="property-title">Waterfront Chalet</h3>
+                <p class="property-price">$620,000</p>
+                <div class="property-specs">
+                  <span><i class="fa-solid fa-bed"></i> 2 Beds</span>
+                  <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> 180 m²</span>
+                </div>
+                <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Property 4 -->
+            <div class="property-card">
+              <div class="property-img-wrapper">
+                <img src="assets/images/properties/prop-4.jpg" alt="Executive Duplex" class="property-img">
+                <span class="property-badge">Hot Deal</span>
+              </div>
+              <div class="property-info">
+                <span class="property-location"><i class="fa-solid fa-location-dot"></i> Sheikh Zayed</span>
+                <h3 class="property-title">Executive Duplex Residence</h3>
+                <p class="property-price">$890,000</p>
+                <div class="property-specs">
+                  <span><i class="fa-solid fa-bed"></i> 4 Beds</span>
+                  <span><i class="fa-solid fa-bath"></i> 4 Baths</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> 400 m²</span>
+                </div>
+                <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Property 5 -->
+            <div class="property-card">
+              <div class="property-img-wrapper">
+                <img src="assets/images/properties/prop-5.jpg" alt="Prime Commercial Unit" class="property-img">
+                <span class="property-badge">Commercial</span>
+              </div>
+              <div class="property-info">
+                <span class="property-location"><i class="fa-solid fa-location-dot"></i> New Cairo</span>
+                <h3 class="property-title">Prime Commercial Space</h3>
+                <p class="property-price">$1,100,000</p>
+                <div class="property-specs">
+                  <span><i class="fa-solid fa-building"></i> Office</span>
+                  <span><i class="fa-solid fa-square-parking"></i> 2 Slots</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> 250 m²</span>
+                </div>
+                <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Property 6 -->
+            <div class="property-card">
+              <div class="property-img-wrapper">
+                <img src="assets/images/properties/prop-6.jpg" alt="Garden Villa" class="property-img">
+                <span class="property-badge">Exclusive</span>
+              </div>
+              <div class="property-info">
+                <span class="property-location"><i class="fa-solid fa-location-dot"></i> New Cairo</span>
+                <h3 class="property-title">Standalone Garden Villa</h3>
+                <p class="property-price">$1,850,000</p>
+                <div class="property-specs">
+                  <span><i class="fa-solid fa-bed"></i> 5 Beds</span>
+                  <span><i class="fa-solid fa-bath"></i> 6 Baths</span>
+                  <span><i class="fa-solid fa-ruler-combined"></i> 650 m²</span>
+                </div>
+                <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+<!-- 🏠 قسم العقارات الديناميكية (Dynamic Properties) -->
+<!-- ========================================== -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">الوحدات والعقارات المتاحة</h2>
+    
+    <!-- المكان اللي هينزل فيه كروت العقارات من الداتابيز -->
+    <div class="row" id="propertiesContainer">
+      <!-- الوحدات المضافة من لوحة التحكم هتظهر هنا تلقائياً -->
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <span class="logo-title">ROOF & ROOTS</span>
+          <span class="logo-subtitle">REAL ESTATE MARKETING</span>
+        </a>
+        <p class="footer-desc">Building Spaces. Growing Values.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="developers.html">Developers</a></li>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fa-solid fa-phone"></i> +20 123 456 7890</p>
+        <p><i class="fa-solid fa-envelope"></i> info@roofandroots.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>&copy; 2026 Roof & Roots Real Estate Marketing. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
+<div class="row" id="propertiesContainer">
+  <!-- العقارات الديناميكية هتظهر هنا تلقائياً -->
+</div>

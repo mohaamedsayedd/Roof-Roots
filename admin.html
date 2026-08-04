@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - Roof & Roots Admin</title>
+  <style>
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { background-color: #f4f6f9; margin: 0; padding: 20px; color: #333; }
+    .container { max-width: 1000px; margin: 0 auto; }
+    h1 { text-align: center; color: #1a252f; }
+    
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 25px; }
+    .form-group { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, textarea, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    
+    button { background: #27ae60; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #219150; }
+    .btn-sold { background: #e67e22; margin-left: 5px; }
+    .btn-delete { background: #e74c3c; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    th, td { padding: 12px; text-align: right; border-bottom: 1px solid #ddd; }
+    th { background: #2c3e50; color: white; }
+    .badge { padding: 4px 8px; border-radius: 4px; color: white; font-size: 12px; display: inline-block; }
+    .badge-available { background: #27ae60; }
+    .badge-sold { background: #e74c3c; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🏢 لوحة تحكم العقارات (Roof & Roots)</h1>
+
+  <!-- Form: Add Property -->
+  <div class="card">
+    <h2>إضافة عقار جديد</h2>
+    <form id="addPropertyForm">
+      <div class="form-group">
+        <label>عنوان العقار (Title):</label>
+        <input type="text" id="pTitle" placeholder="مثال: فيلا للبيع في الشيخ زايد" required>
+      </div>
+      <div class="form-group">
+        <label>السعر (Price):</label>
+        <input type="text" id="pPrice" placeholder="مثال: 5,500,000 ج.م" required>
+      </div>
+      <div class="form-group">
+        <label>الموقع (Location):</label>
+        <input type="text" id="pLocation" placeholder="مثال: أكتوبر / الشيخ زايد" required>
+      </div>
+      <div class="form-group">
+        <label>رابط الصورة (Image Path/URL):</label>
+        <input type="text" id="pImage" placeholder="assets/images/property-1.jpg" value="assets/images/default.jpg">
+      </div>
+      <div class="form-group">
+        <label>الوصف (Description):</label>
+        <textarea id="pDesc" rows="3" placeholder="تفاصيل العقار المساحة والتشطيب..."></textarea>
+      </div>
+      <button type="submit">➕ إضافة العقار</button>
+    </form>
+  </div>
+
+  <!-- Table: Manage Properties -->
+  <div class="card">
+    <h2>قائمة العقارات الحالية</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>العنوان</th>
+          <th>السعر</th>
+          <th>الموقع</th>
+          <th>الحالة</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody id="propertiesTableBody">
+        <!-- البيانات هتتحمل هنا تلقائياً -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  const API_URL = 'http://localhost:5000/api/properties';
+
+  // 1. Fetch & Display All Properties
+  async function loadProperties() {
+    try {
+      const res = await fetch(API_URL);
+      const result = await res.json();
+      const tbody = document.getElementById('propertiesTableBody');
+      tbody.innerHTML = '';
+
+      if (result.success && result.data.length > 0) {
+        result.data.forEach(prop => {
+          const isAvailable = prop.status === 'Available';
+          tbody.innerHTML += `
+            <tr>
+              <td>${prop.id}</td>
+              <td><strong>${prop.title}</strong></td>
+              <td>${prop.price}</td>
+              <td>${prop.location}</td>
+              <td>
+                <span class="badge ${isAvailable ? 'badge-available' : 'badge-sold'}">
+                  ${isAvailable ? 'متاح' : 'مباع (Sold)'}
+                </span>
+              </td>
+              <td>
+                <button class="btn-sold" onclick="toggleStatus(${prop.id}, '${isAvailable ? 'Sold' : 'Available'}')">
+                  ${isAvailable ? 'تعليم كـ مباع' : 'إعادة للمتاح'}
+                </button>
+                <button class="btn-delete" onclick="deleteProperty(${prop.id})">🗑️ مسح</button>
+              </td>
+            </tr>
+          `;
+        });
+      } else {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">لا يوجد عقارات مضافة بعد.</td></tr>';
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  // 2. Add New Property Form Submit
+  document.getElementById('addPropertyForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const newProperty = {
+      title: document.getElementById('pTitle').value,
+      price: document.getElementById('pPrice').value,
+      location: document.getElementById('pLocation').value,
+      image: document.getElementById('pImage').value,
+      description: document.getElementById('pDesc').value,
+    };
+
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newProperty)
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      alert('✅ تم إضافة العقار بنجاح!');
+      document.getElementById('addPropertyForm').reset();
+      loadProperties();
+    }
+  });
+
+  // 3. Change Status (Available / Sold)
+  async function toggleStatus(id, newStatus) {
+    await fetch(`${API_URL}/${id}/status`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: newStatus })
+    });
+    loadProperties();
+  }
+
+  // 4. Delete Property
+  async function deleteProperty(id) {
+    if (confirm('هل أنت تأكد من مسح هذا العقار؟')) {
+      await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+      loadProperties();
+    }
+  }
+
+  // Run on page load
+  loadProperties();
+</script>
+</body>
+</html>

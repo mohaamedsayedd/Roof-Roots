@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Luxury Villa | Roof & Roots</title>
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar-header" id="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="brand-logo">
+        <span class="logo-title">ROOF & ROOTS</span>
+        <span class="logo-subtitle">REAL ESTATE MARKETING</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="properties.html" class="nav-link active">Properties</a></li>
+          <li><a href="developers.html" class="nav-link">Developers</a></li>
+          <li><a href="areas.html" class="nav-link">Areas</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="insights.html" class="nav-link">Insights</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Property Header Banner -->
+  <section class="property-header-section">
+    <div class="container">
+      <div class="property-header-content">
+        <div>
+          <span class="property-location-tag"><i class="fa-solid fa-location-dot"></i> New Cairo, Egypt</span>
+          <h1 class="property-main-title">Modern Luxury Villa</h1>
+        </div>
+        <div class="property-header-price">
+          <span class="price-label">Asking Price</span>
+          <h2 class="price-amount">$1,250,000</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery & Main Details Section -->
+  <section class="property-details-section">
+    <div class="container">
+      
+      <!-- Image Gallery Grid -->
+      <div class="property-gallery">
+        <div class="main-gallery-img">
+          <img src="assets/images/properties/prop-1.jpg" alt="Main View" id="featuredGalleryImg">
+        </div>
+        <div class="sub-gallery-imgs">
+          <img src="assets/images/properties/prop-1-sub1.jpg" alt="Interior View" class="thumb-img active">
+          <img src="assets/images/properties/prop-1-sub2.jpg" alt="Garden View" class="thumb-img">
+          <img src="assets/images/properties/prop-1-sub3.jpg" alt="Bedroom View" class="thumb-img">
+        </div>
+      </div>
+
+      <!-- Quick Spec Bar -->
+      <div class="quick-specs-bar">
+        <div class="spec-item">
+          <i class="fa-solid fa-bed"></i>
+          <div>
+            <span>Bedrooms</span>
+            <strong>4 Beds</strong>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fa-solid fa-bath"></i>
+          <div>
+            <span>Bathrooms</span>
+            <strong>5 Baths</strong>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fa-solid fa-ruler-combined"></i>
+          <div>
+            <span>Property Size</span>
+            <strong>520 m²</strong>
+          </div>
+        </div>
+        <div class="spec-item">
+          <i class="fa-solid fa-car"></i>
+          <div>
+            <span>Garage</span>
+            <strong>2 Cars</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Columns (Description + Lead Form) -->
+      <div class="property-details-grid">
+        
+        <!-- Left: Description & Features -->
+        <div class="property-description-box">
+          <h3>Property Overview</h3>
+          <p>
+            An architectural masterpiece designed for modern living. This luxury standalone villa offers expansive private gardens, contemporary interior layouts, and high-end finishes throughout. Located in the heart of New Cairo with direct access to main hubs.
+          </p>
+
+          <h3>Key Features & Amenities</h3>
+          <ul class="amenities-list">
+            <li><i class="fa-solid fa-check"></i> Private Swimming Pool</li>
+            <li><i class="fa-solid fa-check"></i> Smart Home Automation</li>
+            <li><i class="fa-solid fa-check"></i> Landscaped Private Garden</li>
+            <li><i class="fa-solid fa-check"></i> 24/7 Security & Compound Gating</li>
+            <li><i class="fa-solid fa-check"></i> Underground Parking Garage</li>
+            <li><i class="fa-solid fa-check"></i> Maid's Room with Ensuite</li>
+          </ul>
+        </div>
+
+        <!-- Right: Inquiry Form Sidebar -->
+        <aside class="property-inquiry-sidebar">
+          <div class="inquiry-card">
+            <h3>Interested in this Property?</h3>
+            <p>Schedule a private viewing or request full details from our team.</p>
+            
+            <form id="propertyInquiryForm">
+              <div class="form-group">
+                <label for="clientName">Full Name</label>
+                <input type="text" id="clientName" placeholder="John Doe" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientPhone">Phone Number</label>
+                <input type="tel" id="clientPhone" placeholder="+20 123 456 7890" required>
+              </div>
+
+              <div class="form-group">
+                <label for="clientMessage">Message</label>
+                <textarea id="clientMessage" rows="4" placeholder="I would like to inquire about Modern Luxury Villa..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold btn-full">Request Details</button>
+            </form>
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand-logo">
+          <span class="logo-title">ROOF & ROOTS</span>
+          <span class="logo-subtitle">REAL ESTATE MARKETING</span>
+        </a>
+        <p class="footer-desc">Building Spaces. Growing Values.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="properties.html">Properties</a></li>
+          <li><a href="developers.html">Developers</a></li>
+          <li><a href="areas.html">Areas</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fa-solid fa-phone"></i> +20 123 456 7890</p>
+        <p><i class="fa-solid fa-envelope"></i> info@roofandroots.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container text-center">
+        <p>&copy; 2026 Roof & Roots Real Estate Marketing. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/navbar.js"></script>
+  <script src="assets/js/slider.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
