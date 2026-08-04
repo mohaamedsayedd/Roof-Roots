@@ -3,252 +3,348 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roof & Roots | Building Spaces. Growing Values.</title>
-  
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  
-  <!-- Font Awesome Icons -->
+  <title>Roof & Roots | Real Estate Marketing</title>
+
+  <!-- External Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root {
+      --bg-dark-primary: #111111;
+      --bg-dark-secondary: #1E1E1E;
+      --accent-gold: #D4AF37;
+      --text-light-cream: #F2EDE4;
+      --accent-olive: #5A5F4A;
+      --text-muted: rgba(242, 237, 228, 0.7);
+      --border-gold-low: rgba(212, 175, 55, 0.25);
+      --border-light: rgba(242, 237, 228, 0.1);
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Montserrat', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --radius-sm: 4px;
+      --radius-md: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-dark-primary) !important;
+      color: var(--text-light-cream) !important;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--text-light-cream);
+      font-weight: 600;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-padding {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px auto;
+    }
+
+    .section-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      line-height: 1.3;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background-color: var(--accent-gold);
+      color: var(--bg-dark-primary);
+      border-color: var(--accent-gold);
+    }
+
+    .btn-gold:hover {
+      background-color: transparent;
+      color: var(--accent-gold);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-gold-low);
+      transition: var(--transition);
+    }
+
+    .navbar-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      letter-spacing: 2px;
+      color: var(--text-light-cream);
+      font-weight: 700;
+    }
+
+    .logo-subtitle {
+      font-size: 0.55rem;
+      letter-spacing: 3px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--accent-gold);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(17,17,17,0.7) 0%, rgba(17,17,17,0.95) 100%), 
+                  url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      padding-top: 120px;
+      padding-bottom: 80px;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 900px;
+    }
+
+    .hero-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .pillar-card {
+      background-color: var(--bg-dark-secondary);
+      border: 1px solid var(--border-gold-low);
+      border-radius: var(--radius-md);
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+    }
+
+    .pillar-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 25px auto;
+      background-color: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border-gold-low);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--accent-gold);
+    }
+
+    .pillar-title {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .pillar-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .footer {
+      background-color: var(--bg-dark-secondary);
+      border-top: 1px solid var(--border-gold-low);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .nav-list {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header class="navbar-header" id="navbar">
+  <header class="navbar">
     <div class="container navbar-container">
-      <a href="index.html" class="brand-logo">
+      <a href="#" class="brand-logo">
         <span class="logo-title">ROOF & ROOTS</span>
         <span class="logo-subtitle">REAL ESTATE MARKETING</span>
       </a>
 
-      <nav class="nav-menu" id="navMenu">
-        <ul class="nav-list">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="properties.html" class="nav-link">Properties</a></li>
-          <li><a href="developers.html" class="nav-link">Developers</a></li>
-          <li><a href="areas.html" class="nav-link">Areas</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="insights.html" class="nav-link">Insights</a></li>
-        </ul>
-      </nav>
+      <ul class="nav-list">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#" class="nav-link">Properties</a></li>
+        <li><a href="#" class="nav-link">Developers</a></li>
+        <li><a href="#" class="nav-link">Areas</a></li>
+        <li><a href="#" class="nav-link">Contact</a></li>
+      </ul>
 
-      <div class="nav-actions">
-        <a href="contact.html" class="btn btn-gold">Contact Us</a>
-        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-      </div>
+      <a href="#" class="btn btn-gold">Get In Touch</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-overlay"></div>
+  <section class="hero">
     <div class="container hero-content">
-      <p class="hero-tagline">BUILDING SPACES. GROWING VALUES.</p>
-      <h1 class="hero-title">Find Your Future Space With Enduring Value</h1>
-      <p class="hero-description">
-        Discover premium architectural spaces, luxury developments, and sound investment opportunities tailored for long-term trust.
-      </p>
-
-      <!-- Search Bar -->
-      <div class="search-bar-container">
-        <form class="quick-search-form" id="searchForm">
-          <div class="form-group">
-            <label for="location"><i class="fa-solid fa-location-dot"></i> Location</label>
-            <select id="location" name="location">
-              <option value="">Select Area</option>
-              <option value="new-cairo">New Cairo</option>
-              <option value="sheikh-zayed">Sheikh Zayed</option>
-              <option value="north-coast">North Coast</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="type"><i class="fa-solid fa-building"></i> Property Type</label>
-            <select id="type" name="type">
-              <option value="">Select Type</option>
-              <option value="villa">Villa</option>
-              <option value="apartment">Apartment</option>
-              <option value="duplex">Duplex</option>
-              <option value="commercial">Commercial Space</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="budget"><i class="fa-solid fa-tag"></i> Budget Range</label>
-            <select id="budget" name="budget">
-              <option value="">Any Budget</option>
-              <option value="1">Up to $500,000</option>
-              <option value="2">$500,000 - $1,000,000</option>
-              <option value="3">$1,000,000+</option>
-            </select>
-          </div>
-
-          <button type="submit" class="btn btn-gold search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i> Search
-          </button>
-        </form>
-      </div>
+      <span class="hero-tagline">BUILDING SPACES. GROWING VALUES.</span>
+      <h1 class="hero-title">Where Luxury Architecture Meets Enduring Trust</h1>
+      <p class="hero-desc">Connecting discerning buyers with premier developments and exceptional real estate opportunities across Egypt's most prestigious locations.</p>
+      <a href="#pillars" class="btn btn-gold">Explore Portfolio</a>
     </div>
   </section>
 
-  <!-- Brand Pillars Section (From Brand Guidelines) -->
-  <section class="pillars-section">
+  <section id="pillars" class="section-padding">
     <div class="container">
-      <div class="section-header text-center">
-        <span class="sub-title">OUR FOUNDATION</span>
-        <h2 class="section-title">Rooted in Excellence, Reaching Higher</h2>
+      <div class="section-header">
+        <span class="section-tagline">OUR CORE ESSENCE</span>
+        <h2 class="section-title">The Foundation Of Our Distinction</h2>
       </div>
 
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fa-solid fa-handshake"></i>
-          </div>
-          <h3>TRUST</h3>
-          <p>Honest relationships built on transparent advice and long-term commitments.</p>
+          <div class="pillar-icon"><i class="fa-solid fa-handshake"></i></div>
+          <h3 class="pillar-title">Trust</h3>
+          <p class="pillar-desc">Built on transparency, integrity, and lasting relationships to deliver absolute confidence.</p>
         </div>
 
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fa-solid fa-tree"></i>
-          </div>
-          <h3>ROOTS</h3>
-          <p>Strong foundations in market expertise and solid property selection.</p>
+          <div class="pillar-icon"><i class="fa-solid fa-tree"></i></div>
+          <h3 class="pillar-title">Roots</h3>
+          <p class="pillar-desc">Deep market understanding grounded in stable, solid foundations to guide your choices.</p>
         </div>
 
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <h3>GROWTH</h3>
-          <p>Smart real estate investments that consistently expand your portfolio value.</p>
+          <div class="pillar-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3 class="pillar-title">Growth</h3>
+          <p class="pillar-desc">Curating prime real estate assets designed to appreciate over time and cultivate enduring value.</p>
         </div>
 
         <div class="pillar-card">
-          <div class="pillar-icon">
-            <i class="fa-solid fa-eye"></i>
-          </div>
-          <h3>VISION</h3>
-          <p>Clear foresight into upcoming architectural landmarks and high-yield areas.</p>
+          <div class="pillar-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <h3 class="pillar-title">Vision</h3>
+          <p class="pillar-desc">Forward-thinking strategy mapping out modern architectural trends and high-return destinations.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Properties Section -->
-  <section class="properties-section">
-    <div class="container">
-      <div class="section-header-flex">
-        <div>
-          <span class="sub-title">EXCLUSIVE SELECTION</span>
-          <h2 class="section-title">Featured Properties</h2>
-        </div>
-        <a href="properties.html" class="btn btn-outline-gold">View All Properties</a>
-      </div>
-
-      <div class="properties-grid">
-        <!-- Property Card 1 -->
-        <div class="property-card">
-          <div class="property-img-wrapper">
-            <img src="assets/images/properties/prop-1.jpg" alt="Luxury Villa" class="property-img">
-            <span class="property-badge">Featured</span>
-          </div>
-          <div class="property-info">
-            <span class="property-location"><i class="fa-solid fa-location-dot"></i> New Cairo</span>
-            <h3 class="property-title">Modern Luxury Villa</h3>
-            <p class="property-price">$1,250,000</p>
-            <div class="property-specs">
-              <span><i class="fa-solid fa-bed"></i> 4 Beds</span>
-              <span><i class="fa-solid fa-bath"></i> 5 Baths</span>
-              <span><i class="fa-solid fa-ruler-combined"></i> 520 m²</span>
-            </div>
-            <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- Property Card 2 -->
-        <div class="property-card">
-          <div class="property-img-wrapper">
-            <img src="assets/images/properties/prop-2.jpg" alt="Contemporary Apartment" class="property-img">
-            <span class="property-badge">For Sale</span>
-          </div>
-          <div class="property-info">
-            <span class="property-location"><i class="fa-solid fa-location-dot"></i> Sheikh Zayed</span>
-            <h3 class="property-title">Contemporary Penthouse</h3>
-            <p class="property-price">$780,000</p>
-            <div class="property-specs">
-              <span><i class="fa-solid fa-bed"></i> 3 Beds</span>
-              <span><i class="fa-solid fa-bath"></i> 3 Baths</span>
-              <span><i class="fa-solid fa-ruler-combined"></i> 310 m²</span>
-            </div>
-            <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-
-        <!-- Property Card 3 -->
-        <div class="property-card">
-          <div class="property-img-wrapper">
-            <img src="assets/images/properties/prop-3.jpg" alt="Coastal Chalet" class="property-img">
-            <span class="property-badge">New Launch</span>
-          </div>
-          <div class="property-info">
-            <span class="property-location"><i class="fa-solid fa-location-dot"></i> North Coast</span>
-            <h3 class="property-title">Waterfront Chalet</h3>
-            <p class="property-price">$620,000</p>
-            <div class="property-specs">
-              <span><i class="fa-solid fa-bed"></i> 2 Beds</span>
-              <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
-              <span><i class="fa-solid fa-ruler-combined"></i> 180 m²</span>
-            </div>
-            <a href="property-details.html" class="btn btn-card">Details <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="brand-logo">
-          <span class="logo-title">ROOF & ROOTS</span>
-          <span class="logo-subtitle">REAL ESTATE MARKETING</span>
-        </a>
-        <p class="footer-desc">Building Spaces. Growing Values.</p>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="properties.html">Properties</a></li>
-          <li><a href="developers.html">Developers</a></li>
-          <li><a href="areas.html">Areas</a></li>
-          <li><a href="about.html">About Us</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-contact">
-        <h4>Contact</h4>
-        <p><i class="fa-solid fa-phone"></i> +20 123 456 7890</p>
-        <p><i class="fa-solid fa-envelope"></i> info@roofandroots.com</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container text-center">
-        <p>&copy; 2026 Roof & Roots Real Estate Marketing. All rights reserved.</p>
-      </div>
+    <div class="container">
+      <p>&copy; 2026 Roof & Roots Real Estate Marketing. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="assets/js/navbar.js"></script>
-  <script src="assets/js/main.js"></script>
 </body>
 </html>
